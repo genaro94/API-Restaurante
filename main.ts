@@ -1,8 +1,9 @@
 import { Server } from "./server/server";
+import { usersRouter } from "./users/users.routes";
 
 const server = new Server();
 server
-  .bootstrap()
+  .bootstrap([usersRouter])
   .then((server) => {
     console.log("Server is listing on:", server.application.address());
   })
